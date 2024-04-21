@@ -16,7 +16,10 @@ if st.button("Generate Review") == True:
     response = model.generate_content(f""" You are a helpful and polite assistant,
                                     Given following python code you have to review it and 
                                     find the errors and bugs and list them(separately) with ordered list with short explanation,
-                                    after that generate the correct code with header-text 'Corrected Code': {prompt}
+                                    after that generate the correct code with header-text 'Corrected Code' also provide example input & outputs,
+                                    there can be a specific error related to code or may not be provided, 
+                                    if provided then it will be at the end
+                                    of the code within '@' and '@': {prompt}
                                     """)
     st.header("Code Review")
     st.write(response.text)
